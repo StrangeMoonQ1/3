@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+
+		.boxs {
+			height: 100px;
+			width: 100px;
+			background-color: green;
+			border: solid;
+			position: absolute;
+            background-size: 100% 100%
+		}
+		.firsBox {
+			background-color: white;
+			background-image: url(kot.gif);
+            background-size: 100% 100%
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="content">
+		<h4 style="margin-left: 20px">Score: <span class="score">150</span></h4>
+		<img src="dice1.png" class="bt" style="width: 100px; margin-left: 20px">
+        <h1>ПРОШЕЛ:<span class="s1">0</span></h1>		
+		<div class="boxs firsBox" style="margin-left: 20px">
+			<h4>finish</h4>
+		</div>
+		<div class="boxs" style="margin-left: 130px">1</div>
+		<div class="boxs" style="margin-left: 240px">2</div>
+		<div class="boxs" style="margin-left: 350px; background-color: red">3</div>
+				
+		<div class="boxs " style="margin-left: 460px">4
+            <p>-4 КЛЕТОК</p>
+        </div> 
+		<div class="boxs" style="margin-left: 570px">5</div>
+		<div class="boxs" style="margin-left: 680px;  background-color: red">6</div>
+		<div class="boxs" style="margin-left: 790px">7</div>
+
+		<div class="boxs" style="margin-left: 900px">8</div>
+		<div class="boxs" style="margin-left: 1010px;background-color: red" >9</div>
+		<div class="boxs" style="margin-left: 1120px">10</div>
+		<div class="boxs" style="margin-left: 1230px">11</div>
+
+		<div class="boxs " style="margin-left: 1340px;background-color: red">12 
+			<p>-4 КЛЕТОК</p>
+		</div>
+		<div class="boxs" style="margin-left: 1340px; margin-top: 110px">13</div>
+		<div class="boxs" style="margin-left: 1340px; margin-top: 220px">14</div>	
+		<div class="boxs" style="margin-left: 1340px;background-color: red; margin-top: 330px">15</div>		
+
+		<div class="boxs" style="margin-left: 1340px; margin-top: 440px">16</div>
+		<div class="boxs " style="margin-left: 1230px; margin-top: 440px">17
+            <p>-4 КЛЕТОК</p>
+        </div>
+		<div class="boxs" style="margin-left: 1120px;background-color: red; margin-top: 440px">18</div>
+		<div class="boxs" style="margin-left: 1010px; margin-top: 440px">19</div>
+
+		<div class="boxs" style="margin-left: 900px; margin-top: 440px">20</div>
+		<div class="boxs" style="margin-left: 790px;background-color: red; margin-top: 440px">21</div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 440px">22</div>
+		<div class="boxs " style="margin-left: 570px; margin-top: 440px">23
+            <p>-4 КЛЕТОК</p>
+        </div>
+
+		<div class="boxs" style="margin-left: 460px;background-color: red; margin-top: 440px">24</div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 440px">25</div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 440px">26</div>
+		<div class="boxs" style="margin-left: 130px;background-color: red; margin-top: 440px">27</div>
+
+		<div class="boxs" style="margin-left: 20px; margin-top: 440px">28</div>
+		<div class="boxs" style="margin-left: 20px; margin-top: 330px">29</div>
+		<div class="boxs" style="margin-left: 20px;background-color: red; margin-top: 220px">30</div>	
+		<div class="boxs" style="margin-left: 20px; margin-top: 110px">31</div>		
+
+		<!--последние дивы-->
+		<div class="boxs" style="margin-left: 130px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 240px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 350px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 460px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 570px; margin-top: 110px; background-color: green; opacity: 0"></div>
+		<div class="boxs" style="margin-left: 680px; margin-top: 110px; background-color: green; opacity: 0"></div>
+
+	</div>	
+		
+</body>
+</html>
+
+
+
+
+
+
+<script type="text/javascript">
+
+    let box = document.querySelectorAll(".boxs")
+    let score = document.querySelector(".score")
+    let bt = document.querySelector(".bt")
+    let p = 150
+    let c = 0
+    let s1 = document.querySelector('.s1')
+    bt.onclick = function() {
+        let a = Math.random()*5+1 
+        let o = Math.round(a)
+        s1.innerHTML = o
+        box[c].style.backgroundImage = 'none'
+        c = c + o
+        box[c].style.backgroundImage = 'url(kot.gif)'             
+        if(c >= 32 && p >= 350){
+             c = 0
+            box[c].style.backgroundImage = 'url(kot.gif)'
+        }
+        if(c >= 32 && p < 350){
+            c = 0
+            box[c].style.backgroundImage = 'url(kot.gif)'
+        }   
+        if(c == 3 || c == 6|| c == 9  || c == 12|| c == 15||c == 18 || c == 21||c == 24||c == 27){
+            p = p - 50
+            score.innerHTML = p
+        }
+        if(c == 1  ||c == 2  ||c == 4   || c == 5 ||c == 7  || c == 8 ||c == 10 || c == 11|| c == 13||
+           c == 14 ||c == 16 ||c == 17  || c == 19||c == 20 || c == 22||
+           c == 23 ||c == 25 || c == 26 || c == 28||c == 29 || c == 30|| c == 32|| 
+           c == 31 ){
+            p = p + 50
+            score.innerHTML = p
+        }
+        if(c == 4||c == 12||c== 17||c== 23){
+        box[c].style.backgroundImage = 'none'
+           c = c - 4
+           score.innerHTML = p
+        box[c].style.backgroundImage = 'url(kot.gif)'
+        }
+    }
+</script>
